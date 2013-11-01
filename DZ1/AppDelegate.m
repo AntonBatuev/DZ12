@@ -7,17 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "BAViewController.h"
 
 @implementation AppDelegate
 
+@synthesize viewController=_viewController	;
+@synthesize window=_window;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    self.viewController = [[BAViewController alloc]initWithNibName:@"BAViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
