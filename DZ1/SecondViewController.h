@@ -17,5 +17,7 @@
 @property (strong, nonatomic)  NSMutableArray *strings;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic,strong) IBOutlet  UISwitch* myswitch;
+@property (nonatomic) IBOutlet UIBarButtonItem *edit;
+@property (nonatomic) IBOutlet UIBarButtonItem *add;
 
 @end

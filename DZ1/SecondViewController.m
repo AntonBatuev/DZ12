@@ -18,6 +18,7 @@
 @synthesize mytableView;
 @synthesize strings;
 @synthesize myswitch;
+@synthesize add,edit;
 //@synthesize newString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,10 +41,10 @@
 
     
     
-    UIBarButtonItem *edit =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editing)];
+    edit =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editing)];
     self.navigationItem.rightBarButtonItem = edit;
     
-    UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithTitle:@"Add row" style:UIBarButtonSystemItemDone target:self action:@selector(add_row)];
+    add = [[UIBarButtonItem alloc]initWithTitle:@"Add row" style:UIBarButtonSystemItemDone target:self action:@selector(add_row)];
     
     self.navigationItem.leftBarButtonItem = add;
     mytableView.frame=CGRectMake(0, 0, 320, 60);
@@ -95,6 +96,15 @@
 
 - (void)editing {
     [self.mytableView setEditing:!self.mytableView.editing animated:YES];
+    NSLog(@"njkbkj= %hhd",mytableView.editing);
+    if(mytableView.editing==YES)
+    {
+        myswitch.enabled=NO;
+    }
+    else
+    {
+        myswitch.enabled=YES;
+    }
 }
 
 -(void)changeState
@@ -108,11 +118,19 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles:nil];
+        edit.enabled = NO;
+        add.enabled = NO;
         thirdView.helpString = @"YES";
         [simpleAlert show];
         
     }
-    else {NSLog(@"NO");thirdView.helpString = @"NO";}
+    else
+    {
+        NSLog(@"NO");
+        thirdView.helpString = @"NO";
+        edit.enabled = YES;
+        add.enabled = YES;
+    }
     
 }
 - (void)didReceiveMemoryWarning
@@ -166,7 +184,7 @@
     NSString *cellText = [strings objectAtIndex:indexPath.row];
     CGSize labelSize = [cellText sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:CGSizeMake(self.view.bounds.size.width - 40,CGFLOAT_MAX)  // - 40 For cell padding
                       lineBreakMode:NSLineBreakByWordWrapping];
-    return labelSize.height + 25.0f;
+    return labelSize.height + 15.0f;
 }
 
 
@@ -202,11 +220,13 @@
     {
         [strings removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]withRowAnimation:UITableViewRowAnimationTop];
+        [tableView reloadData];
     }
     if (editingStyle == UITableViewCellEditingStyleInsert)
     {
         [strings insertObject:@"Tutorial" atIndex:0];
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadData];
     }
 }
 
@@ -214,6 +234,7 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [strings exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    [mytableView reloadData];
 }
 
 
