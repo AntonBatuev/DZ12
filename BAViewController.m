@@ -7,6 +7,7 @@
 //
 
 #import "BAViewController.h"
+#import "SecondViewController.h"
 
 @interface BAViewController ()
 
@@ -27,9 +28,11 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+     //[self.navigationController setNavigationBarHidden:YES];
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"iphone-5-Wallpapers.jpg"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
@@ -60,4 +63,14 @@
     label.text = [NSString stringWithFormat:@"%d",count];
     
 }
+
+- (IBAction)push_homework2:(id)sender {
+    SecondViewController * secondView = [[SecondViewController alloc]initWithNibName:@"SecondViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:secondView animated:YES];
+    
+    
+}
+
+
 @end

@@ -8,18 +8,20 @@
 
 #import "AppDelegate.h"
 #import "BAViewController.h"
+#import "SecondViewController.h"
 
 @implementation AppDelegate
 
-@synthesize viewController=_viewController	;
-@synthesize window=_window;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    self.viewController = [[BAViewController alloc]initWithNibName:@"BAViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    BAViewController * firstView = [[BAViewController alloc]initWithNibName:@"BAViewController" bundle:nil];
+  
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:firstView];
+    //self.viewController = [[BAViewController alloc]initWithNibName:@"BAViewController" bundle:nil];
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

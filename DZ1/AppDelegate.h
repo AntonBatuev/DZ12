@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class BAViewController;
+//@class BAViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong,nonatomic) BAViewController *viewController;
+//@property (strong,nonatomic) BAViewController *viewController;
 
 @end

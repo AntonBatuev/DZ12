@@ -21,7 +21,12 @@
 		84619D59182416EB00D02FDF /* DZ1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84619D58182416EB00D02FDF /* DZ1Tests.m */; };
 		84619D651824170600D02FDF /* BAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84619D631824170600D02FDF /* BAViewController.m */; };
 		84619D661824170600D02FDF /* BAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84619D641824170600D02FDF /* BAViewController.xib */; };
-		84619D681824194E00D02FDF /* iphone-5-Wallpapers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84619D671824194E00D02FDF /* iphone-5-Wallpapers.jpg */; };
+		84DC1962182C2BF200EA93E2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84DC1961182C2BF200EA93E2 /* 1.jpg */; };
+		84DC1966182C2D5700EA93E2 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DC1964182C2D5700EA93E2 /* SecondViewController.m */; };
+		84DC1967182C2D5700EA93E2 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DC1965182C2D5700EA93E2 /* SecondViewController.xib */; };
+		84DEAF99182F83B500867FEC /* button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84DEAF98182F83B500867FEC /* button.jpg */; };
+		84E06505182D65BA003847F6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E06503182D65BA003847F6 /* ThirdViewController.m */; };
+		84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E06504182D65BA003847F6 /* ThirdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +59,14 @@
 		84619D621824170600D02FDF /* BAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAViewController.h; path = ../BAViewController.h; sourceTree = "<group>"; };
 		84619D631824170600D02FDF /* BAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAViewController.m; path = ../BAViewController.m; sourceTree = "<group>"; };
 		84619D641824170600D02FDF /* BAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BAViewController.xib; path = ../BAViewController.xib; sourceTree = "<group>"; };
-		84619D671824194E00D02FDF /* iphone-5-Wallpapers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "iphone-5-Wallpapers.jpg"; path = "../../Downloads/iphone-5-Wallpapers.jpg"; sourceTree = "<group>"; };
+		84DC1961182C2BF200EA93E2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		84DC1963182C2D5700EA93E2 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		84DC1964182C2D5700EA93E2 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		84DC1965182C2D5700EA93E2 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		84DEAF98182F83B500867FEC /* button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = button.jpg; sourceTree = "<group>"; };
+		84E06502182D65BA003847F6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		84E06503182D65BA003847F6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		84E06504182D65BA003847F6 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +96,6 @@
 		84619D27182416EB00D02FDF = {
 			isa = PBXGroup;
 			children = (
-				84619D671824194E00D02FDF /* iphone-5-Wallpapers.jpg */,
 				84619D39182416EB00D02FDF /* DZ1 */,
 				84619D52182416EB00D02FDF /* DZ1Tests */,
 				84619D32182416EB00D02FDF /* Frameworks */,
@@ -115,6 +126,8 @@
 		84619D39182416EB00D02FDF /* DZ1 */ = {
 			isa = PBXGroup;
 			children = (
+				84DEAF98182F83B500867FEC /* button.jpg */,
+				84DC1961182C2BF200EA93E2 /* 1.jpg */,
 				84619D42182416EB00D02FDF /* AppDelegate.h */,
 				84619D621824170600D02FDF /* BAViewController.h */,
 				84619D631824170600D02FDF /* BAViewController.m */,
@@ -122,6 +135,12 @@
 				84619D43182416EB00D02FDF /* AppDelegate.m */,
 				84619D45182416EB00D02FDF /* Images.xcassets */,
 				84619D3A182416EB00D02FDF /* Supporting Files */,
+				84DC1963182C2D5700EA93E2 /* SecondViewController.h */,
+				84DC1964182C2D5700EA93E2 /* SecondViewController.m */,
+				84DC1965182C2D5700EA93E2 /* SecondViewController.xib */,
+				84E06502182D65BA003847F6 /* ThirdViewController.h */,
+				84E06503182D65BA003847F6 /* ThirdViewController.m */,
+				84E06504182D65BA003847F6 /* ThirdViewController.xib */,
 			);
 			path = DZ1;
 			sourceTree = "<group>";
@@ -230,10 +249,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DEAF99182F83B500867FEC /* button.jpg in Resources */,
 				84619D3E182416EB00D02FDF /* InfoPlist.strings in Resources */,
+				84DC1962182C2BF200EA93E2 /* 1.jpg in Resources */,
+				84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */,
 				84619D661824170600D02FDF /* BAViewController.xib in Resources */,
 				84619D46182416EB00D02FDF /* Images.xcassets in Resources */,
-				84619D681824194E00D02FDF /* iphone-5-Wallpapers.jpg in Resources */,
+				84DC1967182C2D5700EA93E2 /* SecondViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DC1966182C2D5700EA93E2 /* SecondViewController.m in Sources */,
+				84E06505182D65BA003847F6 /* ThirdViewController.m in Sources */,
 				84619D651824170600D02FDF /* BAViewController.m in Sources */,
 				84619D44182416EB00D02FDF /* AppDelegate.m in Sources */,
 				84619D40182416EB00D02FDF /* main.m in Sources */,
@@ -455,6 +479,7 @@
 				84619D5E182416EB00D02FDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84619D5F182416EB00D02FDF /* Build configuration list for PBXNativeTarget "DZ1Tests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +488,7 @@
 				84619D61182416EB00D02FDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
