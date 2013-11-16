@@ -8,6 +8,7 @@
 
 #import "BAViewController.h"
 #import "SecondViewController.h"
+#import "HW3FirstViewController.h"
 
 @interface BAViewController ()
 
@@ -16,6 +17,7 @@
 @implementation BAViewController
 @synthesize  label;
 @synthesize button;
+@synthesize buttonHW3;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +32,8 @@
 {
     
     [super viewDidLoad];
-     //[self.navigationController setNavigationBarHidden:YES];
+    [buttonHW3 setHidden:YES];
+     [self.navigationController setNavigationBarHidden:YES];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -69,8 +72,19 @@
     
     [self.navigationController pushViewController:secondView animated:YES];
     
+}
+
+- (IBAction)pushHomework3:(id)sender {
+    HW3FirstViewController* hw3View = [[HW3FirstViewController alloc]initWithNibName:@"HW3FirstViewController" bundle:nil];
+    [self.navigationController pushViewController:hw3View animated:YES];
+
     
 }
+
+
+
+
+
 
 
 @end

@@ -155,15 +155,26 @@
    static int i=0;
     static NSString *CellIdentifier;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
-    
+    UILabel* label= nil;
     
     if(cell==nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont fontWithName:@"Arial" size:25.0f];
-        cell.textLabel.text = [strings objectAtIndex:indexPath.row];
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.numberOfLines = 0;
+        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
+        label = [[UILabel alloc] initWithFrame:CGRectZero];
+        [label setLineBreakMode:UILineBreakModeWordWrap];
+        [label setMinimumFontSize:25.0];
+        [label setNumberOfLines:0];
+        [label setFont:[UIFont systemFontOfSize:25.0]];
+        [label setTag:1];
+        label.text = [strings objectAtIndex:indexPath.row];
+        [[cell contentView] addSubview:label];
+        
+        //***************
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell.textLabel.font = [UIFont fontWithName:@"Arial" size:25.0f];
+//        cell.textLabel.text = [strings objectAtIndex:indexPath.row];
+//        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+//        cell.textLabel.numberOfLines = 0;
         if((i % 2)==0)
         {
             cell.backgroundColor = [UIColor colorWithRed:200.0/255.0 green:220.0/255.0 blue:255.0/255.0 alpha:1.0];
@@ -172,19 +183,44 @@
         {
             cell.backgroundColor = [UIColor colorWithRed:180.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0];
         }
-       // i++;
-        NSLog(@"i = %d",i/2);
+        if (indexPath.row == 3) {
+            cell.backgroundColor= [UIColor redColor];
+        }
+//        NSLog(@"i = %d",i/2);
+        //*********************
     }
+    NSString *text = [strings objectAtIndex:[indexPath row]];
+    
+    CGSize constraint = CGSizeMake(320 - (10 * 2), MAXFLOAT);
+    
+    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    
+    if (!label)
+        label = (UILabel*)[cell viewWithTag:1];
+    
+    [label setText:text];
+    [label setFrame:CGRectMake(10, 10, 320 - (10 * 2), MAX(size.height, 44.0f))];
+    
     i++;
     return cell;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellText = [strings objectAtIndex:indexPath.row];
-    CGSize labelSize = [cellText sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:CGSizeMake(self.view.bounds.size.width - 40,CGFLOAT_MAX)  // - 40 For cell padding
-                      lineBreakMode:NSLineBreakByWordWrapping];
-    return labelSize.height + 15.0f;
+   // NSString *cellText = [strings objectAtIndex:indexPath.row];
+//    CGSize labelSize = [cellText sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:CGSizeMake(self.view.bounds.size.width - 40,CGFLOAT_MAX)  // - 40 For cell padding
+//                      lineBreakMode:NSLineBreakByWordWrapping];
+//    return labelSize.height + 15.0f;
+    NSString *text = [strings objectAtIndex:[indexPath row]];
+    
+    CGSize constraint = CGSizeMake(320- (10.0 * 2), MAXFLOAT);
+    
+    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25.0] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    
+    CGFloat height = MAX(size.height, 44.0f);
+    
+    return height + (10 * 2);
+    
 }
 
 
@@ -276,8 +312,19 @@
 - (void)editRow:(ThirdViewController*)controller newString:(NSString*)string row:(int)_row
 {
     NSLog(@"string = %@   row = %d",string,_row);
-    [strings replaceObjectAtIndex:_row withObject:string];
-     [mytableView reloadData];
+    
+    if ([string isEqualToString:@""])
+    {
+        [strings removeObjectAtIndex:_row];
+        [mytableView reloadData];
+    }
+    else
+    {
+    
+        [strings replaceObjectAtIndex:_row withObject:string];
+        [mytableView reloadData];
+    }
+
 }
 
 

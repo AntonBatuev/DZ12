@@ -27,6 +27,10 @@
 		84DEAF99182F83B500867FEC /* button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84DEAF98182F83B500867FEC /* button.jpg */; };
 		84E06505182D65BA003847F6 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E06503182D65BA003847F6 /* ThirdViewController.m */; };
 		84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E06504182D65BA003847F6 /* ThirdViewController.xib */; };
+		84E92E3E183769BB00594B5C /* HW3SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E92E3C183769BB00594B5C /* HW3SecondViewController.m */; };
+		84E92E3F183769BB00594B5C /* HW3SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E92E3D183769BB00594B5C /* HW3SecondViewController.xib */; };
+		84FAC10C1835669700AA06B0 /* HW3FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC10A1835669700AA06B0 /* HW3FirstViewController.m */; };
+		84FAC10D1835669700AA06B0 /* HW3FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC10B1835669700AA06B0 /* HW3FirstViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,12 @@
 		84E06502182D65BA003847F6 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		84E06503182D65BA003847F6 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		84E06504182D65BA003847F6 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
+		84E92E3B183769BB00594B5C /* HW3SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HW3SecondViewController.h; sourceTree = "<group>"; };
+		84E92E3C183769BB00594B5C /* HW3SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HW3SecondViewController.m; sourceTree = "<group>"; };
+		84E92E3D183769BB00594B5C /* HW3SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HW3SecondViewController.xib; sourceTree = "<group>"; };
+		84FAC1091835669700AA06B0 /* HW3FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HW3FirstViewController.h; sourceTree = "<group>"; };
+		84FAC10A1835669700AA06B0 /* HW3FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HW3FirstViewController.m; sourceTree = "<group>"; };
+		84FAC10B1835669700AA06B0 /* HW3FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HW3FirstViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,12 @@
 				84E06502182D65BA003847F6 /* ThirdViewController.h */,
 				84E06503182D65BA003847F6 /* ThirdViewController.m */,
 				84E06504182D65BA003847F6 /* ThirdViewController.xib */,
+				84FAC1091835669700AA06B0 /* HW3FirstViewController.h */,
+				84FAC10A1835669700AA06B0 /* HW3FirstViewController.m */,
+				84FAC10B1835669700AA06B0 /* HW3FirstViewController.xib */,
+				84E92E3B183769BB00594B5C /* HW3SecondViewController.h */,
+				84E92E3C183769BB00594B5C /* HW3SecondViewController.m */,
+				84E92E3D183769BB00594B5C /* HW3SecondViewController.xib */,
 			);
 			path = DZ1;
 			sourceTree = "<group>";
@@ -252,7 +268,9 @@
 				84DEAF99182F83B500867FEC /* button.jpg in Resources */,
 				84619D3E182416EB00D02FDF /* InfoPlist.strings in Resources */,
 				84DC1962182C2BF200EA93E2 /* 1.jpg in Resources */,
+				84E92E3F183769BB00594B5C /* HW3SecondViewController.xib in Resources */,
 				84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */,
+				84FAC10D1835669700AA06B0 /* HW3FirstViewController.xib in Resources */,
 				84619D661824170600D02FDF /* BAViewController.xib in Resources */,
 				84619D46182416EB00D02FDF /* Images.xcassets in Resources */,
 				84DC1967182C2D5700EA93E2 /* SecondViewController.xib in Resources */,
@@ -275,9 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DC1966182C2D5700EA93E2 /* SecondViewController.m in Sources */,
+				84E92E3E183769BB00594B5C /* HW3SecondViewController.m in Sources */,
 				84E06505182D65BA003847F6 /* ThirdViewController.m in Sources */,
 				84619D651824170600D02FDF /* BAViewController.m in Sources */,
 				84619D44182416EB00D02FDF /* AppDelegate.m in Sources */,
+				84FAC10C1835669700AA06B0 /* HW3FirstViewController.m in Sources */,
 				84619D40182416EB00D02FDF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

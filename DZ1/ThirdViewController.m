@@ -35,7 +35,7 @@
     
     [super viewDidLoad];
     self.navigationController.delegate=self;
-    UIBarButtonItem *cancel_button = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(push_cancel)];
+    UIBarButtonItem *cancel_button = [[UIBarButtonItem alloc]initWithTitle:@"Отменить" style:UIBarButtonItemStylePlain target:self action:@selector(push_cancel)];
     self.navigationItem.leftBarButtonItem = cancel_button;
   //  self.navigationItem.
     beginButton.layer.cornerRadius = 50;
@@ -49,6 +49,12 @@
     {
          [endButton setTitle:@"Сохранить" forState:UIControlStateNormal];
          [beginButton setHidden:YES];
+         [endButton setHidden:YES];
+        UIBarButtonItem *save = [[UIBarButtonItem alloc]initWithTitle:@"Cохранить" style:UIBarButtonItemStylePlain target:self action:@selector(pushSave)];
+       // save.title = @"Cохранить";
+        self.navigationItem.rightBarButtonItem.title= @"Cохранить";
+        self.navigationItem.rightBarButtonItem = save;
+       //// mytextView.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
         mytextView.text = helpString;
         //beginButton.textInputContextIdentifier = @"save";
     }
@@ -61,16 +67,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)pushSave
+{
+    NSString * mystring = mytextView.text;
+    [self.delegate editRow:self newString:mystring row:selectedRow];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)push_cancel
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)pushAddStart:(id)sender {
-//    SecondViewController * prevCtrler = [viewCtrlers objectAtIndex:[viewCtrlers count]-2];
-//    
-//    [prevCtrler.strings addObject:textinTextView.text];
-//    
     NSLog(@"СТАРТ");
  //   textinTextView = mytextView.text;
     NSString * mystring = mytextView.text;

@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BAViewController">
             <connections>
                 <outlet property="button" destination="F41-bN-XUg" id="rSf-wS-iLF"/>
+                <outlet property="buttonHW3" destination="2oD-97-KJy" id="1oP-DX-8at"/>
                 <outlet property="label" destination="jeE-Fb-2sP" id="eFE-Jr-UmM"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -38,7 +39,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-h8-LhN">
-                    <rect key="frame" x="0.0" y="396" width="320" height="67"/>
+                    <rect key="frame" x="0.0" y="340" width="320" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -48,6 +49,19 @@
                     </state>
                     <connections>
                         <action selector="push_homework2:" destination="-1" eventType="touchUpInside" id="lMS-r2-N2N"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oD-97-KJy">
+                    <rect key="frame" x="0.0" y="415" width="320" height="67"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="Домашняя работа №3">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="0.28330291969999999" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="pushHomework3:" destination="-1" eventType="touchUpInside" id="RBH-4n-UXK"/>
                     </connections>
                 </button>
             </subviews>
