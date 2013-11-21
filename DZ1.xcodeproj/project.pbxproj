@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8453FAB7183E0AE9005B2D10 /* redbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8453FAB6183E0AE9005B2D10 /* redbtn.png */; };
 		84619D34182416EB00D02FDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84619D33182416EB00D02FDF /* Foundation.framework */; };
 		84619D36182416EB00D02FDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84619D35182416EB00D02FDF /* CoreGraphics.framework */; };
 		84619D38182416EB00D02FDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84619D37182416EB00D02FDF /* UIKit.framework */; };
@@ -29,6 +30,7 @@
 		84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E06504182D65BA003847F6 /* ThirdViewController.xib */; };
 		84E92E3E183769BB00594B5C /* HW3SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E92E3C183769BB00594B5C /* HW3SecondViewController.m */; };
 		84E92E3F183769BB00594B5C /* HW3SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E92E3D183769BB00594B5C /* HW3SecondViewController.xib */; };
+		84E9AC87183B85F0001FF2E6 /* 1rotate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84E9AC86183B85F0001FF2E6 /* 1rotate.jpg */; };
 		84FAC10C1835669700AA06B0 /* HW3FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC10A1835669700AA06B0 /* HW3FirstViewController.m */; };
 		84FAC10D1835669700AA06B0 /* HW3FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC10B1835669700AA06B0 /* HW3FirstViewController.xib */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8453FAB6183E0AE9005B2D10 /* redbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redbtn.png; path = "../../../../Volumes/NO NAME/redbtn.png"; sourceTree = "<group>"; };
 		84619D30182416EB00D02FDF /* DZ1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZ1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84619D33182416EB00D02FDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84619D35182416EB00D02FDF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -74,6 +77,7 @@
 		84E92E3B183769BB00594B5C /* HW3SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HW3SecondViewController.h; sourceTree = "<group>"; };
 		84E92E3C183769BB00594B5C /* HW3SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HW3SecondViewController.m; sourceTree = "<group>"; };
 		84E92E3D183769BB00594B5C /* HW3SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HW3SecondViewController.xib; sourceTree = "<group>"; };
+		84E9AC86183B85F0001FF2E6 /* 1rotate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1rotate.jpg; sourceTree = "<group>"; };
 		84FAC1091835669700AA06B0 /* HW3FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HW3FirstViewController.h; sourceTree = "<group>"; };
 		84FAC10A1835669700AA06B0 /* HW3FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HW3FirstViewController.m; sourceTree = "<group>"; };
 		84FAC10B1835669700AA06B0 /* HW3FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HW3FirstViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		84619D27182416EB00D02FDF = {
 			isa = PBXGroup;
 			children = (
+				8453FAB6183E0AE9005B2D10 /* redbtn.png */,
+				84E9AC86183B85F0001FF2E6 /* 1rotate.jpg */,
 				84619D39182416EB00D02FDF /* DZ1 */,
 				84619D52182416EB00D02FDF /* DZ1Tests */,
 				84619D32182416EB00D02FDF /* Frameworks */,
@@ -267,10 +273,12 @@
 			files = (
 				84DEAF99182F83B500867FEC /* button.jpg in Resources */,
 				84619D3E182416EB00D02FDF /* InfoPlist.strings in Resources */,
+				8453FAB7183E0AE9005B2D10 /* redbtn.png in Resources */,
 				84DC1962182C2BF200EA93E2 /* 1.jpg in Resources */,
 				84E92E3F183769BB00594B5C /* HW3SecondViewController.xib in Resources */,
 				84E06506182D65BA003847F6 /* ThirdViewController.xib in Resources */,
 				84FAC10D1835669700AA06B0 /* HW3FirstViewController.xib in Resources */,
+				84E9AC87183B85F0001FF2E6 /* 1rotate.jpg in Resources */,
 				84619D661824170600D02FDF /* BAViewController.xib in Resources */,
 				84619D46182416EB00D02FDF /* Images.xcassets in Resources */,
 				84DC1967182C2D5700EA93E2 /* SecondViewController.xib in Resources */,

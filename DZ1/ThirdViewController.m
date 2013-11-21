@@ -20,6 +20,7 @@
 @synthesize helpString;
 @synthesize addOrEdit;
 @synthesize selectedRow;
+@synthesize keyboardString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +35,13 @@
 {
     
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
     self.navigationController.delegate=self;
     UIBarButtonItem *cancel_button = [[UIBarButtonItem alloc]initWithTitle:@"Отменить" style:UIBarButtonItemStylePlain target:self action:@selector(push_cancel)];
     self.navigationItem.leftBarButtonItem = cancel_button;
@@ -156,7 +164,74 @@
     
     NSLog(@"keyboard hide");
 }
+-(void)viewWillLayoutSubviews
+{
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        endButton.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.width-50 ,[UIScreen mainScreen].bounds.size.height, 50);
+        beginButton.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.width-102, [UIScreen mainScreen].bounds.size.height, 50);
+        
+        NSLog(@"Landscape");
+        beginButton.layer.cornerRadius = 20;
+        beginButton.clipsToBounds  = YES;
+        
+        endButton.layer.cornerRadius = 20; // this value vary as per your desire
+        endButton.clipsToBounds = YES;
+        
+        if ([addOrEdit isEqualToString:@"EDIT"]){
+            if ([keyboardString isEqualToString:@"KeyBoardHide" ]) {
+                
+            
+            mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+            }
+            }
+        else    mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width-100-3);
 
+        
 
+    }
+    else
+    {
+        endButton.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-100, [UIScreen mainScreen].bounds.size.width, 100);
+      beginButton.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-202, [UIScreen mainScreen].bounds.size.width, 100);
+        beginButton.layer.cornerRadius = 50;
+        beginButton.clipsToBounds  = YES;
+        
+        endButton.layer.cornerRadius = 50; // this value vary as per your desire
+        endButton.clipsToBounds = YES;
+       
+        
+        if ([addOrEdit isEqualToString:@"EDIT"]){
+        mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        }
+        else    mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-200-3);
+        
+        
 
+        NSLog(@"Portait");
+    }
+}
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    if ([addOrEdit isEqualToString:@"EDIT"])
+    {
+        if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+        {
+            NSLog(@"EDIT+LAND");
+           // mytextView.frame = CG
+            mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width-162);
+        }
+    }
+keyboardString  = @"KeyBoardShow";
+    NSLog(@"KeyBoardShown");
+}
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    if ([addOrEdit isEqualToString:@"EDIT"]){
+        mytextView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    }
+    NSLog(@"KeyBoardHidden");
+    keyboardString  = @"KeyBoardHide";
+}
 @end

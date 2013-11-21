@@ -13,7 +13,7 @@
     NSString * newString;
     NSInteger select_row;
 }
-@property (weak, nonatomic) IBOutlet UITableView *mytableView;
+@property (strong, nonatomic) IBOutlet UITableView *mytableView;
 @property (strong, nonatomic)  NSMutableArray *strings;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic,strong) IBOutlet  UISwitch* myswitch;

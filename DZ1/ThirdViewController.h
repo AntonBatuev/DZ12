@@ -28,5 +28,7 @@
 @property (nonatomic) NSString * helpString;
 @property (nonatomic) NSString * addOrEdit;
 @property (nonatomic) NSUInteger selectedRow;
+@property (weak, nonatomic) IBOutlet UITextView *myTextView;
+@property (strong,nonatomic) NSString* keyboardString;
 
 @end

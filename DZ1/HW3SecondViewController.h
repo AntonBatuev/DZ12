@@ -10,4 +10,11 @@
 
 @interface HW3SecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
+@property (nonatomic) NSString* numberButton;
+@property (weak, nonatomic) IBOutlet UIButton *bigButton;
+
 @end

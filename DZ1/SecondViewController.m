@@ -33,7 +33,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-         [self.navigationController setNavigationBarHidden:NO];
+    
+  //  mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+   // mytableView.delegate = self;
+   // mytableView.dataSource = self;
+    [self.navigationController setNavigationBarHidden:NO];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Table";
     strings = [[NSMutableArray alloc]initWithObjects:@"Anton Batuev Anton Batuev Anton Batuev Anton Batuev",@"b",@"c",@"d",@"e",@"f", nil];
@@ -168,13 +172,6 @@
         [label setTag:1];
         label.text = [strings objectAtIndex:indexPath.row];
         [[cell contentView] addSubview:label];
-        
-        //***************
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        cell.textLabel.font = [UIFont fontWithName:@"Arial" size:25.0f];
-//        cell.textLabel.text = [strings objectAtIndex:indexPath.row];
-//        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-//        cell.textLabel.numberOfLines = 0;
         if((i % 2)==0)
         {
             cell.backgroundColor = [UIColor colorWithRed:200.0/255.0 green:220.0/255.0 blue:255.0/255.0 alpha:1.0];
@@ -183,44 +180,74 @@
         {
             cell.backgroundColor = [UIColor colorWithRed:180.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0];
         }
-      //  if (indexPath.row == 3) {
-          //  cell.backgroundColor= [UIColor redColor];
-      //  }
-//        NSLog(@"i = %d",i/2);
-        //*********************
     }
-    NSString *text = [strings objectAtIndex:[indexPath row]];
     
-    CGSize constraint = CGSizeMake(320 - (10 * 2), MAXFLOAT);
-    
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-    
-    if (!label)
-        label = (UILabel*)[cell viewWithTag:1];
-    
-    [label setText:text];
-    [label setFrame:CGRectMake(10, 10, 320 - (10 * 2), MAX(size.height, 44.0f))];
-    
-    i++;
-    return cell;
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        
+        NSString *text = [strings objectAtIndex:[indexPath row]];
+        
+        CGSize constraint = CGSizeMake([UIScreen mainScreen].bounds.size.height- (10 * 2), MAXFLOAT);
+        
+        CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        
+        if (!label)
+            label = (UILabel*)[cell viewWithTag:1];
+        
+        [label setText:text];
+        [label setFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.height - (10 * 2), MAX(size.height, 44.0f))];
+        
+        i++;
+        return cell;
+
+    }
+    else
+    {
+        
+        NSString *text = [strings objectAtIndex:[indexPath row]];
+        
+        CGSize constraint = CGSizeMake([UIScreen mainScreen].bounds.size.width- (10 * 2), MAXFLOAT);
+        
+        CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        
+        if (!label)
+            label = (UILabel*)[cell viewWithTag:1];
+        
+        [label setText:text];
+        [label setFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - (10 * 2), MAX(size.height, 44.0f))];
+        
+        i++;
+        return cell;
+
+        
+        
+    }
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // NSString *cellText = [strings objectAtIndex:indexPath.row];
-//    CGSize labelSize = [cellText sizeWithFont:[UIFont systemFontOfSize:25] constrainedToSize:CGSizeMake(self.view.bounds.size.width - 40,CGFLOAT_MAX)  // - 40 For cell padding
-//                      lineBreakMode:NSLineBreakByWordWrapping];
-//    return labelSize.height + 15.0f;
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+       
+        NSString *text = [strings objectAtIndex:[indexPath row]];
+        CGSize constraint = CGSizeMake([UIScreen mainScreen].bounds.size.height- (10.0 * 2), MAXFLOAT);
+        CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25.0] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat height = MAX(size.height, 44.0f);
+        return height + (10 * 2);
+    
+    
+    
+    }
+    
+    else
+    {
+    NSLog(@"Portait");
     NSString *text = [strings objectAtIndex:[indexPath row]];
-    
-    CGSize constraint = CGSizeMake(320- (10.0 * 2), MAXFLOAT);
-    
+    CGSize constraint = CGSizeMake([UIScreen mainScreen].bounds.size.width- (10.0 * 2), MAXFLOAT);
     CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:25.0] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-    
     CGFloat height = MAX(size.height, 44.0f);
-    
     return height + (10 * 2);
-    
+    }
 }
 
 
@@ -299,12 +326,12 @@
     if (select_row == -2)
     {
         [strings addObject:item];
-        self.myTableView.reloadData;
+        [mytableView reloadData];
     }
     else if (select_row == -1)
     {
         [strings insertObject:item atIndex:0];
-        self.myTableView.reloadData;
+        [mytableView reloadData];
     }
 }
 
@@ -326,6 +353,25 @@
     }
 
 }
+-(void)viewWillLayoutSubviews
+{
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        
+        mytableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+        [mytableView reloadData];
+        
+                NSLog(@"Landscape");
+    }
+    else
+    {
+        
+        mytableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        
 
+        [mytableView reloadData];
+                NSLog(@"Portait");
+    }
+}
 
 @end

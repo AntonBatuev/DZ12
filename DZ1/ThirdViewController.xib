@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="beginButton" destination="0dV-cX-Wzt" id="t4i-Ue-ZmY"/>
                 <outlet property="endButton" destination="tL9-dk-YeA" id="Xke-Fw-YTS"/>
+                <outlet property="myTextView" destination="Ci3-8U-8r0" id="k4H-ND-Mfj"/>
                 <outlet property="mytextView" destination="Ci3-8U-8r0" id="cid-cp-4h1"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>

@@ -17,7 +17,7 @@
 @implementation BAViewController
 @synthesize  label;
 @synthesize button;
-@synthesize buttonHW3;
+@synthesize buttonHW2,buttonHW3;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,14 +32,14 @@
 {
     
     [super viewDidLoad];
-    [buttonHW3 setHidden:YES];
+    //[buttonHW3 setHidden:YES];
      [self.navigationController setNavigationBarHidden:YES];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-    
+//    UIGraphicsBeginImageContext(self.view.frame.size);
+//    [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+//    
     label.layer.cornerRadius = 35;
     label.clipsToBounds  = YES;
     
@@ -52,6 +52,12 @@
     [[label layer] setBorderWidth:5.0f];
     [[label layer] setBorderColor:[UIColor greenColor].CGColor];
     
+    
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    
+    return UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationMaskPortrait;
     
 }
 
@@ -80,8 +86,50 @@
 
     
 }
+-(void)viewWillLayoutSubviews
+{
+if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+{
+    
+    CGRect rect = label.frame;
+    rect.origin.y = label.frame.origin.y-100;
+    label.frame = rect;
+    label.center = CGPointMake([UIScreen mainScreen].bounds.size.height/2, label.center.y);
+    
+    rect = button.frame;
+    rect.origin.y = button.frame.origin.y-100;
+    button.frame = rect;
+    button.center = CGPointMake([UIScreen mainScreen].bounds.size.height/2, button.center.y);
 
+    buttonHW2.frame = CGRectMake(0, buttonHW2.frame.origin.y-120,[UIScreen mainScreen].bounds.size.height , buttonHW2.frame.size.height-15) ;
+    buttonHW3.frame = CGRectMake(0, buttonHW3.frame.origin.y-140,[UIScreen mainScreen].bounds.size.height , buttonHW3.frame.size.height-15) ;
+    
+    NSLog(@"rectland = %f",rect.size.width);
+    
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [[UIImage imageNamed:@"1rotate.jpg"] drawInRect:self.view.bounds];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    NSLog(@"land");
+}
+else
+{
+    
+    
+    label.frame = CGRectMake(120, 119, 80, 80);
+    button.frame = CGRectMake(74, 219, 173, 51);
+    buttonHW2.frame = CGRectMake(0, 296, [UIScreen mainScreen].bounds.size.width, 67);
+    buttonHW3.frame = CGRectMake(0, 374, [UIScreen mainScreen].bounds.size.width, 67);
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"1.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
 
+}
+}
 
 
 

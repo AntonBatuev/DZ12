@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-    CGRect frameBtn = CGRectMake(160.0f, 150.0f, 144.0f, 42.0f);
+   // CGRect frameBtn = CGRectMake(160.0f, 150.0f, 144.0f, 42.0f);
     //[button6 setTitle:@"1" forState:UIControlStateNormal];
 
     // Do any additional setup after loading the view from its nib.
@@ -44,66 +44,33 @@
 
 - (IBAction)push1:(id)sender
 {
-
-    [UIView animateWithDuration:3.0f delay:0.0f options:UIViewAnimationCurveLinear animations:^{button1.alpha = 0.0;} completion:^(BOOL finished)
+    [UIView animateWithDuration:3.0f delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{button1.alpha = 0.0;} completion:^(BOOL finished)
         {
             if (finished)
-                [UIView animateWithDuration:3.0f delay:1.0f options:UIViewAnimationCurveEaseIn animations:^{button1.alpha = 1.0;} completion:nil];
+                [UIView animateWithDuration:3.0f delay:1.0f options:UIViewAnimationOptionCurveLinear animations:^{button1.alpha = 1.0;} completion:nil];
         }
     ];
-
 }
 - (IBAction)push2:(id)sender
 {
-    CGRect rext = CGRectMake(button2.frame.origin.x, button2.frame.origin.y, button2.frame.size.width+50, button2.frame.size.height+50);
-   // button2.frame= rext;
-    // = CGRectMake(button2.frame.origin.x, button2.frame.origin.y, button2.frame.size.width+10,button2.frame.size.height+10);
-    button2 = [[UIButton alloc]initWithFrame:rext];
-    [UIView animateWithDuration:1.0
-                          delay:0.3
-                        options:UIViewAnimationOptionLayoutSubviews
-                     animations:^{
-                      //   button2.frame=rext;
-                     }
-                     completion:nil
-     ];
-//        [UIView animateWithDuration:5.0f
-//                              delay:0.0f
-//                            options:UIViewAnimationCurveLinear
-//                         animations:^{
-//      button2.frame = CGRectMake(button2.frame.origin.x+button2.frame.size.width/4 , button2.frame.origin.y+button2.frame.size.height/4, button2.frame.size.width/2, button2.frame.size.height/2);
-//            }
-//     completion:^(BOOL finished)
-//     {
-//         if (finished)
-//             [UIView animateWithDuration:3.0f delay:0.0f options:UIViewAnimationCurveLinear animations:^
-//              {
-//                  button2.frame = CGRectMake(button2.frame.origin.x-button2.frame.size.width/2 , button2.frame.origin.y-button2.frame.size.height/2, button2.frame.size.width*2, button2.frame.size.height/2);
-//              } completion:nil];
-//         
-//      }
-//     ];
-//
-//    [UIView animateWithDuration:3.0f delay:0.0f options:UIViewAnimationCurveLinear animations:^
-//     {
-//      button2.frame = CGRectMake(button2.frame.origin.x+button2.frame.size.width/4 , button2.frame.origin.y+button2.frame.size.height/4, button2.frame.size.width/2, button2.frame.size.height/2);
-//     }
-//                     completion:^(BOOL finished)
-//     {
-//         if (finished)
-//             [UIView animateWithDuration:3.0f delay:0.0f options:UIViewAnimationCurveLinear animations:^
-//              {
-//               button2.frame = CGRectMake(button2.frame.origin.x-button2.frame.size.width/2 , button2.frame.origin.y-button2.frame.size.height/2, button2.frame.size.width*2, button2.frame.size.height/2);
-//               
-//
-//              } completion:nil];
-//         
-//     }
-//     ];
+    
+        button2.transform = CGAffineTransformIdentity;
+         [UIView animateWithDuration:3.0
+                         animations:^{
+                             //  green.transform = CGAffineTransformIdentity;
+                             button2.transform = CGAffineTransformMakeTranslation(button2.frame.size.width/2, button2.frame.size.height/2);
+                             button2.transform  = CGAffineTransformScale(button2.transform  ,0.5, 0.5);
+                         }
+                         completion:^(BOOL finished){
+                            if (finished) [UIView animateWithDuration:3.0 animations:^{
+                                     button2.transform = CGAffineTransformTranslate(button2.transform, -2*button2.frame.size.width, -2*button2.frame.size.height);
+                                    button2.transform  = CGAffineTransformMakeScale(1, 1);
+    
+    
+                             }];
+                                 }
+         ];
 
-
-
-//button2.transform =  CGAffineTransformMakeScale(0,0);
 
 }
 
@@ -113,6 +80,7 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
+                         button3.frame = button4.frame;
                      }
                      completion:^(BOOL finished)
      {
@@ -157,82 +125,208 @@
 }
 - (IBAction)push5:(id)sender {
   
-  //  [button6 setHidden:YES];
-    
-   // CGRect imageBounds = button5.bounds;
-   // [button5.layer setAnchorPoint:CGPointMake(button5.center.x / imageBounds.size.width, button5.center.y / imageBounds.size.height)];
-    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{button5.transform =CGAffineTransformRotate(button5.transform, M_PI/4);} completion:nil];
-    //button5.transform = CGAffineTransformMakeRotation(90 * M_PI/180);
-    
+
+    button5.transform = CGAffineTransformIdentity;
+    NSLog(@"x = %f y = %f",button5.center.x,button5.center.y);
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         //green.transform = CGAffineTransformIdentity;
+                         button5.transform = CGAffineTransformMakeTranslation(-100,-20);
+                         button5.transform  = CGAffineTransformRotate(button5.transform, M_PI_4);
+                     }
+                     completion:^(BOOL finished)
+     {
+         if(finished) [UIView animateWithDuration:1.0 animations:^
+                       {
+                             button5.transform = CGAffineTransformTranslate(button5.transform,85,-55);
+                             button5.transform  = CGAffineTransformRotate(button5.transform, -M_PI_4);
+                           
+                       }
+                       ];
+     }
+     
+     ];
+    NSLog(@"x = %f y = %f",button5.center.x,button5.center.y);
+
+
+
 }
 - (IBAction)push6:(id)sender {
- HW3SecondViewController *aboutShowViewController = [[HW3SecondViewController alloc] initWithNibName:@"HW3SecondViewController" bundle:[NSBundle mainBundle]];
     
- 
-//  HW3FirstViewController *aboutShowViewController = [[HW3FirstViewController alloc] initWithNibName:@"HW3FirstViewController" bundle:[NSBundle mainBundle]];
-//  [button6 setTitle:@"1" forState:UIControlStateNormal];
-//    [UIView beginAnimations:@"" context:nil];
-//    [UIView setAnimationDuration:5.0];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    [UIView setAnimationDidStopSelector:@selector(finishanimation)];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-//    [self.navigationController pushViewController:aboutShowViewController animated:YES];
-//    [aboutShowViewController.button6 setTitle:@"10" forState:UIControlStateNormal];
+//    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+//    {
+//        button6.titleLabel.font = [UIFont systemFontOfSize:110.0];
+//    }
+//    else
     
     
+//    UIInterfaceOrientationIsLandscape(self.interfaceOrientation)?(button6.titleLabel.font = [UIFont systemFontOfSize:110.0]):(button6.titleLabel.font = [UIFont systemFontOfSize:170]);
+//    if ([button6.currentTitle isEqualToString:@"6"])
+//    {
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.5];
+//   // [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:NO];
+//    [UIView commitAnimations];
+//  
+//       // UIInterfaceOrientationIsLandscape(self.interfaceOrientation)?(button6.titleLabel.font = [UIFont systemFontOfSize:110.0]):(button6.titleLabel.font = [UIFont systemFontOfSize:170]);
+//        [button6 setTitle:@"10" forState:UIControlStateNormal];
+//        button6.titleLabel.font = [UIFont systemFontOfSize:90.0];
+//    }
+//         else
+//         if ([button6.currentTitle isEqualToString:@"10"])
+//         {
+//             [UIView beginAnimations:nil context:nil];
+//             [UIView setAnimationDuration:0.5];
+//             // [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//             [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:NO];
+//             [UIView commitAnimations];
+//             [button6 setTitle:@"6" forState:UIControlStateNormal];
+//             UIInterfaceOrientationIsLandscape(self.interfaceOrientation)?(button6.titleLabel.font = [UIFont systemFontOfSize:110.0]):(button6.titleLabel.font = [UIFont systemFontOfSize:170]);
+//             // button6.titleLabel.font = [UIFont systemFontOfSize:170.0];
+//         };
+//
     
+    HW3SecondViewController * secondView = [[HW3SecondViewController alloc]initWithNibName:@"HW3SecondViewController" bundle:nil];
+    //[self.navigationController pushViewController:secondView animated:YES];
+    secondView.numberButton = @"10";
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:5.0];
-   // [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:NO];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view  cache:NO];
+    [self.navigationController pushViewController:secondView animated:YES];
     [UIView commitAnimations];
-    if ([button6.currentTitle isEqualToString:@"6"]) {
-        [button6 setTitle:@"10" forState:UIControlStateNormal];
-        button6.titleLabel.font = [UIFont systemFontOfSize:90.0];
-    }
-         else
-         if ([button6.currentTitle isEqualToString:@"10"])
-         {
-             [button6 setTitle:@"6" forState:UIControlStateNormal];
-             button6.titleLabel.font = [UIFont systemFontOfSize:170.0];
-         }
-   // [button6 setTitle:@"1" forState:UIControlStateNormal];
     
-    //[UIView transitionFromView:self.view toView:aboutSho
-    
-    
-    
-   //[UIView transitionFromView:self.view toView:aboutShowViewController.view duration:2.0 options:UIViewAnimationTransitionFlipFromRight completion:nil];
-//    [UIView transitionWithView:self.view duration:1.0 options:UIViewAnimationTransitionFlipFromLeft animations:^{ [self.navigationController pushViewController:aboutShowViewController animated:YES];} completion:nil]
-    ;//    [aboutShowViewController release];
 }
 
--(void)finishanimation{
+-(void)finishanimation
+{
     NSLog(@"finish");
     [button6 setTitle:@"1" forState:UIControlStateNormal];
 }
 - (IBAction)push7:(id)sender
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1.25];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:NO];
-    [UIView commitAnimations];
-    if ([button7.currentTitle isEqualToString:@"7"]) {
-        [button7 setTitle:@"11" forState:UIControlStateNormal];
-        button7.titleLabel.font = [UIFont systemFontOfSize:90.0];
-    }
-    else
-        if ([button7.currentTitle isEqualToString:@"11"])
-        {
-            [button7 setTitle:@"7" forState:UIControlStateNormal];
-            button7.titleLabel.font = [UIFont systemFontOfSize:170.0];
-        }
-    
+    HW3SecondViewController * secondView = [[HW3SecondViewController alloc]initWithNibName:@"HW3SecondViewController" bundle:nil];
+    secondView.numberButton = @"11";
+    [self.navigationController pushViewController:secondView animated:YES];
+//    [UIView animateWithDuration:1.0
+//                          delay:0.0
+//                        options:UIViewAnimationOptionTransitionCrossDissolve
+//                     animations:^{
+//                         self.view.alpha = 0.0;
+//                         secondView.view.alpha = 0.0;
+//                      //   [self.navigationController pushViewController:secondView animated:YES];
+//                     }
+//                     completion:^(BOOL finished){
+//                         if(finished)
+//                         {
+//                            
+//                             [UIView animateWithDuration:0.0 animations:^{[self.navigationController pushViewController:secondView animated:NO];} completion:^(BOOL finished)
+//                              {
+//                                  if (finished) [UIView animateWithDuration:1.0 animations:^{secondView.view.alpha = 1.0;self.view.alpha = 1.0;}];
+//                              }
+//                              ];
+//                         
+//                         }
+//                     }
+//    ];
+  //  [UIView transitionFromView:second.view toView:secondView.view duration:3.0 options:UIViewAnimationOptionTransitionCrossDissolve completion:nil];
+  ///  [self.navigationController pushViewController:secondView animated:YES];
+    //    [UIView animateWithDuration:2.0f
+//                     animations:^{self.view.alpha = 0.0;}
+//                     completion:^(BOOL finished)
+//                    {
+//                         if(finished)
+//                         {
+//                             [button7 setTitle:@"11" forState:UIControlStateNormal];
+//                             [UIView animateWithDuration:2.0f
+//                                              animations:^{self.view.alpha = 1.0;}
+//                                              completion:nil];
+//
+//                     }
+//     
+//                        ];
 }
+
+
+
 - (IBAction)push8:(id)sender {
+    
+  //  [UIView animateWithDuration:2.0f delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{button1.alpha = 0.0;} completion:nil];
+    button2.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:2.0 delay:0.0 options:UIViewAnimationOptionCurveLinear
+                     animations:^
+                    {
+                        button1.alpha = 0.0;
+                        button3.frame = button4.frame;
+                         //  green.transform = CGAffineTransformIdentity;
+                         button2.transform = CGAffineTransformMakeTranslation(button2.frame.size.width/2, button2.frame.size.height/2);
+                         button2.transform  = CGAffineTransformScale(button2.transform  ,0.5, 0.5);
+                        //button3.frame = button4.frame;
+                     }
+                     completion:nil];
+    
+    
+//    [UIView animateWithDuration:2.0f
+//                          delay:0.0
+//                        options:UIViewAnimationOptionCurveLinear
+//                     animations:^{
+//                         button3.frame = button4.frame;
+//                     }
+//                     completion:nil];
+
+    
+    
+
+
 }
 - (IBAction)push9:(id)sender {
+    HW3SecondViewController * secondView = [[HW3SecondViewController alloc]initWithNibName:@"HW3SecondViewController" bundle:nil];
+    
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1.0];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+       [self.navigationController pushViewController:secondView animated:YES];
+        [UIView commitAnimations];
+    
+    
 }
+-(void)viewWillLayoutSubviews
+{
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        
+        button1.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button2.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button3.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button4.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button5.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button6.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button7.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button8.titleLabel.font = [UIFont systemFontOfSize:110.0];
+        button9.titleLabel.font = [UIFont systemFontOfSize:110.0];
+
+    
+        NSLog(@"land");
+    }
+    else
+    {
+    button1.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button2.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button3.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button4.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button5.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button6.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button7.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button8.titleLabel.font = [UIFont systemFontOfSize:170.0];
+    button9.titleLabel.font = [UIFont systemFontOfSize:170.0];
+      
+        NSLog(@"Port");
+    }
+}
+
+
+
 
 @end

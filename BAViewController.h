@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 - (IBAction)pushbutton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buttonHW2;
 @property (weak, nonatomic) IBOutlet UIButton *buttonHW3;
 
 @end
