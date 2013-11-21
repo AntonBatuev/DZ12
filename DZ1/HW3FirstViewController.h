@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button7;
 @property (weak, nonatomic) IBOutlet UIButton *button8;
 @property (weak, nonatomic) IBOutlet UIButton *button9;
+@property (weak, nonatomic) IBOutlet UIButton *button10;
+@property (weak, nonatomic) IBOutlet UIButton *button11;
 
 @end
